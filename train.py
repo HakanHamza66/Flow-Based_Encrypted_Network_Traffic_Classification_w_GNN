@@ -11,8 +11,8 @@ def should_stop_early(metrics, patience):
     return False
 def train(model, train_data, val_data, epochs=30, lr=0.001):
     optimizer = torch.optim.Adam(model.parameters(), lr=lr)
-    train_loader = DataLoader(train_data, batch_size=64, shuffle=True)
-    val_loader = DataLoader(val_data, batch_size=64, shuffle=False)
+    train_loader = DataLoader(train_data, batch_size=256, shuffle=True)
+    val_loader = DataLoader(val_data, batch_size=256, shuffle=False)
 
     for epoch in range(epochs):
         model.train()
@@ -29,7 +29,7 @@ def train(model, train_data, val_data, epochs=30, lr=0.001):
         print(f"Epoch {epoch+1:02d} | Loss: {total_loss:.4f} | Val Acc: {acc:.4f} | F1: {f1:.4f}")
         val_f1_scores.append(f1)
 
-        if should_stop_early(val_f1_scores, patience=5):
+        if should_stop_early(val_f1_scores, patience=7):
             print(f"Early stopping at epoch {epoch + 1}")
             break
 def evaluate(model, data_loader):
