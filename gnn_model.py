@@ -10,6 +10,7 @@ class SimpleGNN(nn.Module):
         self.conv2 = GCNConv(hidden_channels, hidden_channels)
         self.conv3 = GCNConv(hidden_channels, hidden_channels)
         self.conv4 = GCNConv(hidden_channels, hidden_channels)
+        self.conv5 = GCNConv(hidden_channels, hidden_channels)
         self.lin1 = nn.Linear(hidden_channels, hidden_channels)
         self.lin2 = nn.Linear(hidden_channels, out_channels)
 
@@ -19,6 +20,7 @@ class SimpleGNN(nn.Module):
         x = F.relu(self.conv2(x, edge_index))
         x = F.relu(self.conv3(x, edge_index))
         x = F.relu(self.conv4(x, edge_index))
+        x = F.relu(self.conv5(x, edge_index))
         x = global_mean_pool(x, batch)
 
         x = F.dropout(x, p=0.3, training=self.training)
