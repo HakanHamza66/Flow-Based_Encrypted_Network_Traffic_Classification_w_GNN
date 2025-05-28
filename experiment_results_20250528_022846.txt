@@ -1,0 +1,43 @@
+
+Experiment Configuration:
+NUM_LAYERS: 5
+HIDDEN_CHANNELS: 512
+EPOCHS: 80
+LEARNING_RATE: 0.001
+Training Time: 1568.15 seconds
+
+Test Set Results:
+Overall Test Accuracy: 79.96%
+Total Test Samples: 6995
+
+Per-class Metrics:
+             Class  Precision    Recall  F1-Score
+0          Discord   0.715729  0.801292  0.756098
+1      GoToMeeting   0.840084  0.880673  0.859900
+2        Instagram   0.867062  0.870748  0.868901
+3             Line   0.755656  0.684426  0.718280
+4  Microsoft Teams   0.821253  0.816738  0.818989
+5            Slack   0.703158  0.750562  0.726087
+6         Snapchat   0.665385  0.624549  0.644320
+7            Tango   0.811765  0.650943  0.722513
+8           TikTok   0.811881  0.773585  0.792271
+
+Confusion Matrix:
+                       Discord    GoToMeeting      Instagram           LineMicrosoft Teams          Slack       Snapchat          Tango         TikTok
+Discord                    496              5             16             14             20             34              7             18              9
+GoToMeeting                  9           1203             17              0            100              1             23              2             11
+Instagram                   24             21           1024              9             42              8             32              7              9
+Line                        15              5             27            167              9              2              6              6              7
+Microsoft Teams             20            117             26             11           1337             33             71             12             10
+Slack                       47              3              6              7             14            334             10              9             15
+Snapchat                    22             56             39              3             60              6            346              3             19
+Tango                       32             11             15              3             25             36             11            276             15
+TikTok                      28             11             11              7             21             21             14              7            410
+
+==================================================
+
+SVM Results:
+Accuracy: 0.4934
+Precision: 0.6008
+Recall: 0.3793
+F1_score: 0.4084

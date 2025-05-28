@@ -75,4 +75,3 @@ def load_and_convert_all(csv_folder, app_map, cat_map, common_features):
                 data.category = torch.tensor([cat_map[row['category']]], dtype=torch.long)
                 graph_list.append(data)
     return graph_list
-
